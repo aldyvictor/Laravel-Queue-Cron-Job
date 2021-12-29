@@ -59,7 +59,7 @@ class TransactionController extends Controller
                 // );
 
                 MailController::expiredDate($request->user_id);
-                dispatch(new UpdatePendingToNoPaid($request->user_id, $transaction->id))->delay(now()->addMinutes(5));
+                dispatch(new UpdatePendingToNoPaid($request->user_id, $transaction->id))->delay(now()->addMinutes(60));
                 return response()->json([
                     'message' => 'Add to transaction success, you must pay it before '. Carbon::create($dateExpired)->format("Y F d H:i:s"),
                 ]);

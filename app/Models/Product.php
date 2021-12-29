@@ -17,8 +17,14 @@ class Product extends Model
     protected $fillable = [
         'name',
         'price',
-        'product_image_name',
-        'product_image_url'
+        'product_image_original_name',
+        'product_image_original_url',
+        'product_image_large_name',
+        'product_image_large_url',
+        'product_image_medium_name',
+        'product_image_medium_url',
+        'product_image_small_name',
+        'product_image_small_url',
     ];
 
     public function productTransaction()
