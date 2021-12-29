@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Storage;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
-    public function uploadFile(Request $request)
+    public function store(Request $request)
     {
-        // $putFile = Storage::disk('s3')->putFile('public/images', $request->file('file'));
+        $original_size_image = $request->file('image')->store('images', 's3');
+        $original_url_image = Storage::disk('s3')->url($original_size_image);
     }
 }
