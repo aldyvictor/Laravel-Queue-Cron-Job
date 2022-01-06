@@ -62,7 +62,7 @@ class TransactionController extends Controller
                 dispatch(new UpdatePendingToNoPaid($request->user_id, $transaction->id))->delay(now()->addMinutes(60));
                 return response()->json([
                     'message' => 'Add to transaction success, you must pay it before '. Carbon::create($dateExpired)->format("Y F d H:i:s"),
-                ]);
+                ], 201);
             } catch (\Throwable $th) {
                 return $th;
                 return response()->json([

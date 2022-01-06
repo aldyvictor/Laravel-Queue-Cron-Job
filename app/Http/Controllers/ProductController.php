@@ -48,11 +48,11 @@ class ProductController extends Controller
             return response()->json([
                 'message' => 'Success to Store',
                 'data' => $product
-            ]);
+            ], 200);
         } catch (\Throwable $th) {
             return response()->json([
                 'message' => 'Failed to Store'
-            ]);
+            ], 404);
         }
     }
 }
